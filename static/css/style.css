@@ -1,0 +1,154 @@
+:root {
+    --bg-color: #050505;
+    --primary-orange: #ff6600;
+    --dark-orange: #b34700;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-orange);
+    font-family: 'Press Start 2P', monospace;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    animation: flicker 4s infinite;
+}
+
+/* CRT Scanlines */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 4px;
+    z-index: 50;
+    pointer-events: none;
+}
+
+/* Vignette */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%);
+    pointer-events: none;
+    z-index: 51;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--primary-orange);
+    text-shadow: 4px 4px var(--dark-orange);
+    margin-bottom: 1rem;
+    letter-spacing: 4px;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: #ffd0b3;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.menu-box {
+    border: 4px solid var(--primary-orange);
+    padding: 2rem;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 8px 8px 0 var(--dark-orange);
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px var(--dark-orange);
+    border-bottom: 4px dashed var(--primary-orange);
+    padding-bottom: 0.8rem;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.orange {
+    color: var(--primary-orange);
+    text-shadow: 1px 1px var(--dark-orange);
+}
+
+.interactive-list li {
+    cursor: pointer;
+    padding: 0.8rem;
+    transition: all 0.1s;
+    border: 2px solid transparent;
+}
+
+.interactive-list li:hover, .interactive-list li:focus {
+    background-color: var(--primary-orange);
+    color: var(--bg-color);
+    outline: none;
+    border: 2px solid var(--dark-orange);
+    transform: scale(1.02);
+}
+
+footer {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.blink {
+    animation: blinker 1s step-end infinite;
+    font-size: 1.2rem;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+/* Subtle CRT flicker */
+@keyframes flicker {
+    0% { opacity: 0.95; }
+    5% { opacity: 0.85; }
+    10% { opacity: 0.95; }
+    15% { opacity: 1; }
+    100% { opacity: 1; }
+}

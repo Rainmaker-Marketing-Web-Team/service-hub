@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coolify - Retro Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="content">
+        <header>
+            <h1>COOLIFY</h1>
+            <p class="subtitle">v 1.0.0</p>
+        </header>
+
+        <main class="menu-container">
+            <div class="menu-box">
+                <h2>SYS STATUS</h2>
+                <ul>
+                    <li>CPU    : <span class="orange">OK</span></li>
+                    <li>MEMORY : <span class="orange">OK</span></li>
+                    <li>DISK   : <span class="orange">OK</span></li>
+                </ul>
+            </div>
+
+            <div class="menu-box">
+                <h2>SERVICES</h2>
+                <ul class="interactive-list">
+                    <li tabindex="0">> GHOST BLOG</li>
+                    <li tabindex="0">> POSTGRES DB</li>
+                    <li tabindex="0">> REDIS CACHE</li>
+                    <li tabindex="0">> NGINX PROXY</li>
+                </ul>
+            </div>
+            
+        </main>
+        
+        <footer>
+            <p class="blink">INSERT COIN TO CONTINUE...</p>
+        </footer>
+    </div>
+</body>
+</html>
